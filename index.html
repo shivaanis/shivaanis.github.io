@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shivani Sudhir — Design &amp; Content, Sydney</title>
+<meta name="description" content="Shivani Sudhir, Sydney. Product design for calm, considered apps, and quiet, natural content for home and lifestyle brands. Two crafts, one eye.">
+<link rel="canonical" href="https://shivanisudhir.xyz/">
+<meta name="theme-color" content="#FBFAF6">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shivanisudhir.xyz/">
+<meta property="og:title" content="Shivani Sudhir — Design & Content">
+<meta property="og:description" content="Product design for calm, considered apps. Quiet, natural content for home and lifestyle brands.">
+<meta property="og:image" content="https://shivanisudhir.xyz/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Shivani Sudhir","url":"https://shivanisudhir.xyz/","jobTitle":"Product designer and content creator","address":{"@type":"PostalAddress","addressLocality":"Sydney","addressCountry":"AU"},"sameAs":["https://design.shivanisudhir.xyz/","https://ugc.shivanisudhir.xyz/"]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..500&family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Inter+Tight:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..500&family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Inter+Tight:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="preload" as="image" href="assets/poster.jpg">
+<style>
+  :root {
+    /* design: paper and ink, from design.shivanisudhir.xyz */
+    --paper: #FBFAF6; --paper-edge: #E5E2D9; --ink: #1A1A1F; --ink-mid: #4D4D55; --ink-mute: #7A7A82; --coral: #F25C3B;
+    /* content: cream and mocha, from ugc.shivanisudhir.xyz */
+    --cream: #F4ECDD; --mocha: #421825; --mocha-deep: #2A0E17; --rose: #D8BCAB;
+    --serif-d: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+    --serif-c: 'Cormorant Garamond', 'Cormorant', Garamond, Georgia, serif;
+    --sans: 'Inter Tight', -apple-system, 'Helvetica Neue', Arial, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --ease: cubic-bezier(.7, 0, .2, 1);
+    --edge: clamp(20px, 2.6vw, 40px);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body { background: var(--mocha-deep); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; overflow: hidden; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .mono { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* ── top line: place, time, hello ── */
+  .top { position: fixed; z-index: 20; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; align-items: center; padding: var(--edge); pointer-events: none; }
+  .top > * { pointer-events: auto; }
+  .top .place { color: var(--ink-mid); }
+  .top .hello { justify-self: end; color: var(--cream); text-decoration: none; display: inline-flex; gap: 8px; align-items: center; }
+  .top .hello::after { content: ''; width: 18px; height: 1px; background: currentColor; transition: width .4s var(--ease); }
+  .top .hello:hover::after, .top .hello:focus-visible::after { width: 34px; }
+
+  /* ── the split ── */
+  .split { position: fixed; inset: 0; display: flex; }
+  .half { position: relative; flex: 1 1 0; min-width: 0; overflow: hidden; display: block; text-decoration: none; color: inherit; outline: none; transition: flex-grow 1s var(--ease); }
+  .split:not(.leaving) .half.design:hover, .split:not(.leaving) .half.design:focus-visible { flex-grow: 1.32; }
+  .split:not(.leaving) .half.content:hover, .split:not(.leaving) .half.content:focus-visible { flex-grow: 1.32; }
+  .split.leaving.to-design .design, .split.leaving.to-content .content { flex-grow: 60; }
+  .half:focus-visible::after { content: ''; position: absolute; inset: 10px; border: 1.5px solid currentColor; border-radius: 4px; pointer-events: none; }
+
+  /* design: a canvas */
+  .design { background: var(--paper); color: var(--ink); cursor: crosshair; }
+  .design .grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(26,26,31,0.055) 1px, transparent 1px), linear-gradient(90deg, rgba(26,26,31,0.055) 1px, transparent 1px); background-size: 32px 32px; background-position: -1px -1px; mask-image: radial-gradient(ellipse 85% 75% at 45% 50%, #000 40%, transparent 100%); -webkit-mask-image: radial-gradient(ellipse 85% 75% at 45% 50%, #000 40%, transparent 100%); }
+  .crop { position: absolute; width: 14px; height: 14px; border-color: var(--ink-mute); border-style: solid; border-width: 0; opacity: .55; }
+  .crop.tl { top: calc(var(--edge) + 34px); left: var(--edge); border-top-width: 1px; border-left-width: 1px; }
+  .crop.bl { bottom: var(--edge); left: var(--edge); border-bottom-width: 1px; border-left-width: 1px; }
+  .design .crop.tr { top: calc(var(--edge) + 34px); right: var(--edge); border-top-width: 1px; border-right-width: 1px; }
+  .design .crop.br { bottom: var(--edge); right: var(--edge); border-bottom-width: 1px; border-right-width: 1px; }
+
+  /* the device, drawing her screens */
+  .device { position: absolute; left: 63%; top: 41%; height: 49vh; width: auto; aspect-ratio: 540 / 1174; transform: translateX(-50%); padding: 7px; border-radius: 34px; background: #0E0E12; box-shadow: 0 50px 80px -30px rgba(26,26,31,0.45), 0 0 0 1px rgba(26,26,31,0.9); transition: transform 1s var(--ease); }
+  .design:hover .device { transform: translateX(-50%) translateY(-10px); }
+  .screen { display: block; position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: 27px; background: var(--paper); }
+  .screen img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; clip-path: inset(0 0 100% 0); transition: clip-path 1.1s var(--ease); }
+  .screen img.on { clip-path: inset(0 0 0 0); }
+  .screen img.off { clip-path: inset(100% 0 0 0); }
+  .wire { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .wire * { fill: none; stroke: var(--coral); stroke-width: 1.4; vector-effect: non-scaling-stroke; stroke-dasharray: var(--len, 600); stroke-dashoffset: var(--len, 600); }
+  .wire.draw * { animation: draw 1.15s var(--ease) forwards; }
+  .wire.draw *:nth-child(2) { animation-delay: .08s } .wire.draw *:nth-child(3) { animation-delay: .16s } .wire.draw *:nth-child(4) { animation-delay: .24s } .wire.draw *:nth-child(5) { animation-delay: .32s } .wire.draw *:nth-child(6) { animation-delay: .4s } .wire.draw *:nth-child(7) { animation-delay: .48s } .wire.draw *:nth-child(8) { animation-delay: .56s } .wire.draw *:nth-child(9) { animation-delay: .64s }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  .wire.fade { opacity: 0; transition: opacity .6s; }
+
+  /* the palette of whatever app is on the phone */
+  .swatches { position: absolute; left: 30%; top: 47%; transform: translateX(-50%); display: grid; gap: 8px; padding: 12px 12px 10px; width: 148px; border-radius: 12px; background: rgba(255,255,255,.82); border: 1px solid var(--paper-edge); box-shadow: 0 18px 40px -18px rgba(26,26,31,.28); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+  .swatches .head { display: flex; justify-content: space-between; color: var(--ink-mute); font-size: .58rem; }
+  .swatches .row { display: grid; grid-template-columns: 22px 1fr; align-items: center; gap: 9px; }
+  .swatches .chip { display: block; width: 22px; height: 22px; border-radius: 6px; box-shadow: inset 0 0 0 1px rgba(26,26,31,.08); transition: background-color .9s var(--ease); }
+  .swatches .hex { font-family: var(--mono); font-size: .64rem; color: var(--ink-mid); letter-spacing: .03em; }
+
+  /* content: a viewfinder */
+  .content { background: var(--mocha); color: var(--cream); cursor: pointer; }
+  .content .bg { position: absolute; inset: -8%; width: 116%; height: 116%; object-fit: cover; filter: blur(34px) saturate(1.15) brightness(.55); transform: scale(1.1); }
+  .reel { position: absolute; left: 37%; top: 41%; height: 49vh; aspect-ratio: 9 / 16; transform: translateX(-50%); transition: transform 1s var(--ease); }
+  .content:hover .reel { transform: translateX(-50%) translateY(-10px); }
+  .reel video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 22px; box-shadow: 0 50px 80px -30px rgba(0,0,0,.6), 0 0 0 1px rgba(244,236,221,.12); }
+  .vf { position: absolute; inset: -16px; pointer-events: none; }
+  .vf i { position: absolute; width: 22px; height: 22px; border: 0 solid var(--cream); opacity: .9; }
+  .vf i:nth-child(1) { top: 0; left: 0; border-width: 1.5px 0 0 1.5px; } .vf i:nth-child(2) { top: 0; right: 0; border-width: 1.5px 1.5px 0 0; }
+  .vf i:nth-child(3) { bottom: 0; left: 0; border-width: 0 0 1.5px 1.5px; } .vf i:nth-child(4) { bottom: 0; right: 0; border-width: 0 1.5px 1.5px 0; }
+  .content .tint { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(42,14,23,.5) 0%, rgba(66,24,37,.15) 40%, rgba(42,14,23,.6) 100%); }
+  .content .grain { position: absolute; inset: -50%; opacity: .09; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); animation: grain 1.2s steps(6) infinite; }
+  @keyframes grain { 0%{transform:translate(0,0)} 20%{transform:translate(-4%,3%)} 40%{transform:translate(3%,-2%)} 60%{transform:translate(-2%,-4%)} 80%{transform:translate(4%,2%)} 100%{transform:translate(0,0)} }
+  .rec { position: absolute; left: 0; bottom: calc(100% + 26px); white-space: nowrap; display: inline-flex; align-items: center; gap: 9px; color: var(--cream); }
+  .rec i { width: 8px; height: 8px; border-radius: 50%; background: #FF4D4D; box-shadow: 0 0 10px rgba(255,77,77,.8); animation: rec 1.6s steps(1) infinite; }
+  @keyframes rec { 50% { opacity: .15; } }
+  .rec .tc { color: rgba(244,236,221,.7); font-variant-numeric: tabular-nums; }
+
+  /* the name, split by the seam */
+  .name { position: absolute; top: 29%; transform: translateY(-50%); line-height: .82; white-space: nowrap; pointer-events: none; font-size: clamp(3.4rem, 9.2vw, 10.5rem); }
+  .design .name { right: var(--edge); font-family: var(--serif-d); font-weight: 340; font-variation-settings: 'opsz' 144; letter-spacing: -0.035em; color: var(--ink); }
+  .design .name em { font-style: normal; color: var(--coral); }
+  .content .name { left: var(--edge); font-family: var(--serif-c); font-style: italic; font-weight: 400; letter-spacing: -0.01em; color: var(--cream); font-size: clamp(3.8rem, 10.2vw, 11.6rem); text-shadow: 0 2px 40px rgba(42,14,23,.35); }
+
+  /* the two paths */
+  .path { position: absolute; bottom: calc(var(--edge) + 26px); display: grid; gap: 6px; max-width: 280px; }
+  .design .path { left: calc(var(--edge) + 26px); }
+  .content .path { right: calc(var(--edge) + 36px); text-align: right; justify-items: end; }
+  .path .idx { color: var(--ink-mute); }
+  .content .path .idx { color: rgba(244,236,221,.6); }
+  .path .kind { font-size: clamp(1.7rem, 2.3vw, 2.3rem); line-height: 1; }
+  .design .path .kind { font-family: var(--serif-d); font-variation-settings: 'opsz' 72; font-weight: 400; letter-spacing: -0.02em; }
+  .content .path .kind { font-family: var(--serif-c); font-style: italic; font-weight: 500; }
+  .path .what { font-size: .86rem; color: var(--ink-mid); }
+  .content .path .what { color: rgba(244,236,221,.78); }
+  .path .go { display: inline-flex; align-items: center; gap: 10px; margin-top: 10px; font-size: .84rem; font-weight: 500; }
+  .path .go b { display: inline-block; width: 28px; height: 1px; background: currentColor; position: relative; transition: width .6s var(--ease); }
+  .path .go b::after { content: ''; position: absolute; right: 0; top: -3px; width: 7px; height: 7px; border-top: 1px solid currentColor; border-right: 1px solid currentColor; transform: rotate(45deg); }
+  .half:hover .path .go b, .half:focus-visible .path .go b { width: 52px; }
+  .design .path .go { color: var(--ink); }
+
+  /* design-tool cursor: guides and coordinates */
+  .guide { position: absolute; pointer-events: none; background: var(--coral); opacity: 0; transition: opacity .3s; }
+  .guide.x { left: 0; right: 0; height: 1px; } .guide.y { top: 0; bottom: 0; width: 1px; }
+  .coords { position: absolute; pointer-events: none; padding: 3px 7px; border-radius: 4px; background: var(--coral); color: white; opacity: 0; transition: opacity .3s; white-space: nowrap; font-size: .62rem; }
+  .design.tracking .guide, .design.tracking .coords { opacity: .9; }
+  .design.tracking .guide { opacity: .35; }
+
+  /* viewfinder cursor: a focus square */
+  .focus { position: absolute; pointer-events: none; width: 64px; height: 64px; margin: -32px 0 0 -32px; opacity: 0; transition: opacity .3s, width .3s, height .3s; }
+  .focus::before, .focus::after { content: ''; position: absolute; inset: 0; border: 1.5px solid var(--cream); clip-path: polygon(0 0,30% 0,30% 2px,2px 2px,2px 30%,0 30%, 0 70%,2px 70%,2px calc(100% - 2px),30% calc(100% - 2px),30% 100%,0 100%, 100% 100%,70% 100%,70% calc(100% - 2px),calc(100% - 2px) calc(100% - 2px),calc(100% - 2px) 70%,100% 70%, 100% 30%,calc(100% - 2px) 30%,calc(100% - 2px) 2px,70% 2px,70% 0,100% 0); }
+  .focus::after { border: 0; inset: 50% auto auto 50%; width: 4px; height: 4px; margin: -2px; border-radius: 50%; background: var(--cream); clip-path: none; }
+  .content.tracking .focus { opacity: 1; }
+  .content.tracking, .content.tracking * { cursor: none; }
+
+  /* entrance: the two halves meet at the seam */
+  .js .design { clip-path: inset(0 0 0 100%); }
+  .js .content { clip-path: inset(0 100% 0 0); }
+  .js .name, .js .path, .js .top { opacity: 0; }
+  .ready .design, .ready .content { clip-path: inset(0); transition: clip-path 1.25s var(--ease), flex-grow 1s var(--ease); }
+  .ready .name { opacity: 1; transition: opacity 1.2s .55s, transform 1.2s .55s var(--ease); }
+  .ready .path, .ready .top { opacity: 1; transition: opacity 1s .9s; }
+  .js .design .name { transform: translate(18px, -50%); } .ready .design .name { transform: translate(0, -50%); }
+  .js .content .name { transform: translate(-18px, -50%); } .ready .content .name { transform: translate(0, -50%); }
+
+  /* ── phones: the seam turns horizontal ── */
+  @media (max-width: 760px), (max-aspect-ratio: 4/5) {
+    .split { flex-direction: column; }
+    .half { flex-basis: 0; }
+    .split:not(.leaving) .half.design:hover, .split:not(.leaving) .half.content:hover { flex-grow: 1; }
+    .top .place { color: var(--ink-mid); }
+    .top .hello { color: var(--ink); }
+    .top .time { display: none; }
+    .top { grid-template-columns: 1fr auto; }
+    .design .name { right: auto; left: var(--edge); top: auto; bottom: 10px; transform: none; font-size: clamp(3.6rem, 19vw, 7rem); }
+    .content .name { top: 8px; transform: none; font-size: clamp(4rem, 21vw, 7.8rem); }
+    .js .design .name, .ready .design .name, .js .content .name, .ready .content .name { transform: none; }
+    .device { left: auto; right: 7%; top: 21%; height: auto; width: clamp(118px, 31vw, 190px); transform: none; border-radius: 26px; padding: 5px; }
+    .design:hover .device { transform: none; }
+    .swatches { left: var(--edge); top: 49%; transform: none; width: auto; padding: 0; background: none; border: 0; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; grid-auto-flow: column; gap: 6px; }
+    .swatches .head, .swatches .hex { display: none; }
+    .swatches .row { display: block; }
+    .swatches .chip { width: 26px; height: 26px; border-radius: 50%; }
+    .screen { border-radius: 21px; }
+    .design .path { top: calc(var(--edge) + 56px); bottom: auto; left: var(--edge); max-width: 52%; }
+    .content .path { right: calc(var(--edge) + 6px); bottom: calc(var(--edge) + 6px); }
+    .path .go { margin-top: 6px; }
+    .crop.tl, .design .crop.tr { top: calc(var(--edge) + 30px); }
+    .design .crop.bl, .design .crop.br { display: none; }
+    .content .bg { display: none; }
+    .reel, .content:hover .reel { left: 0; top: 0; height: 100%; width: 100%; aspect-ratio: auto; transform: none; }
+    .reel video { border-radius: 0; box-shadow: none; }
+    .content .tint { z-index: 1; background: linear-gradient(180deg, rgba(42,14,23,.55) 0%, rgba(66,24,37,.1) 38%, rgba(42,14,23,.75) 100%); }
+    .content .name, .content .path { z-index: 2; }
+    .vf { inset: 14px; z-index: 2; }
+    .vf i { width: 18px; height: 18px; }
+    .rec { z-index: 2; left: auto; right: 18px; bottom: auto; top: 44px; }
+    .js .design { clip-path: inset(0 0 100% 0); } .js .content { clip-path: inset(100% 0 0 0); }
+    .ready .design, .ready .content { clip-path: inset(0); }
+  }
+  @media (max-width: 380px) { .design .path .what { display: none; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .js .design, .js .content { clip-path: none; }
+    .js .name, .js .path, .js .top { opacity: 1; }
+    .screen img { clip-path: none; }
+    .wire { display: none; }
+  }
+</style>
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<h1 class="sr">Shivani Sudhir: product designer and content creator in Sydney</h1>
+
+<header class="top">
+  <span class="place mono">Sydney, Australia</span>
+  <a class="hello mono" href="mailto:shivaanisudhir@gmail.com">Say hello</a>
+</header>
+
+<main class="split" id="split">
+  <a class="half design" href="https://design.shivanisudhir.xyz/" data-path="design" aria-label="Design: UI/UX portfolio">
+    <span class="grid" aria-hidden="true"></span>
+    <span class="crop tl" aria-hidden="true"></span><span class="crop tr" aria-hidden="true"></span><span class="crop bl" aria-hidden="true"></span><span class="crop br" aria-hidden="true"></span>
+    <span class="device" aria-hidden="true"><span class="screen" id="screen">
+      <img src="assets/screens/palettely.webp" alt="" width="540" height="1174" class="on">
+      <img src="assets/screens/nightbloom.webp" alt="" width="540" height="1174" loading="lazy">
+      <img src="assets/screens/utilify.webp" alt="" width="540" height="1174" loading="lazy">
+      <img src="assets/screens/canwasa.webp" alt="" width="540" height="1174" loading="lazy">
+      <img src="assets/screens/timezone.webp" alt="" width="540" height="1174" loading="lazy">
+      <svg class="wire" id="wire" viewBox="0 0 270 587" preserveAspectRatio="none">
+        <rect x="18" y="26" width="64" height="8" rx="4"/>
+        <rect x="18" y="62" width="150" height="20" rx="6"/>
+        <rect x="18" y="98" width="234" height="132" rx="18"/>
+        <rect x="18" y="246" width="110" height="96" rx="16"/>
+        <rect x="142" y="246" width="110" height="96" rx="16"/>
+        <line x1="18" y1="368" x2="180" y2="368"/>
+        <rect x="18" y="386" width="234" height="58" rx="14"/>
+        <rect x="18" y="456" width="234" height="58" rx="14"/>
+        <rect x="70" y="538" width="130" height="30" rx="15"/>
+      </svg>
+    </span></span>
+    <span class="swatches" aria-hidden="true">
+      <span class="head mono"><span>Colour</span><span id="swName">Palettely</span></span>
+      <span class="row"><span class="chip"></span><span class="hex"></span></span>
+      <span class="row"><span class="chip"></span><span class="hex"></span></span>
+      <span class="row"><span class="chip"></span><span class="hex"></span></span>
+      <span class="row"><span class="chip"></span><span class="hex"></span></span>
+    </span>
+    <span class="name">Shivani</span>
+    <span class="path">
+      <span class="idx mono">01</span>
+      <span class="kind">Design</span>
+      <span class="what">UI/UX for calm, considered apps</span>
+      <span class="go">See the work <b></b></span>
+    </span>
+    <span class="guide x" aria-hidden="true"></span><span class="guide y" aria-hidden="true"></span>
+    <span class="coords mono" aria-hidden="true"></span>
+  </a>
+
+  <a class="half content" href="https://ugc.shivanisudhir.xyz/" data-path="content" aria-label="Content: UGC and lifestyle reels">
+    <video class="bg" src="assets/reel.mp4" poster="assets/poster.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+    <span class="tint" aria-hidden="true"></span>
+    <span class="grain" aria-hidden="true"></span>
+    <span class="reel" aria-hidden="true">
+      <video id="reel" src="assets/reel.mp4" poster="assets/poster.jpg" autoplay muted loop playsinline preload="auto"></video>
+      <span class="vf"><i></i><i></i><i></i><i></i></span>
+      <span class="rec mono"><i></i>Rec <span class="tc" id="tc">00:00:00:00</span></span>
+    </span>
+    <span class="name">Sudhir</span>
+    <span class="path">
+      <span class="idx mono">02</span>
+      <span class="kind">Content</span>
+      <span class="what">Quiet stories for home &amp; lifestyle brands</span>
+      <span class="go">Watch the reels <b></b></span>
+    </span>
+    <span class="focus" aria-hidden="true"></span>
+  </a>
+</main>
+
+<script>
+(function () {
+  var root = document.documentElement, split = document.getElementById('split');
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var touch = window.matchMedia('(hover: none)').matches;
+
+  // the two halves meet at the seam
+  requestAnimationFrame(function () { requestAnimationFrame(function () { root.classList.add('ready'); }); });
+
+
+  // the screen draws itself, then fills in: one of her apps after another
+  var imgs = [].slice.call(document.querySelectorAll('#screen img')), wire = document.getElementById('wire');
+  [].forEach.call(wire.children, function (el) { var l = el.getTotalLength ? Math.ceil(el.getTotalLength()) + 2 : 600; el.style.setProperty('--len', l); });
+  var apps = [
+    { name: 'Palettely', screen: 'Home', colours: ['#F97316', '#8B5CF6', '#2A9D8F', '#E9C46A'] },
+    { name: 'Night Bloom', screen: 'Home', colours: ['#6366F1', '#4338CA', '#0E1A14', '#C4B5FD'] },
+    { name: 'Utilify', screen: 'Tools', colours: ['#FB923C', '#EF4444', '#6C5CE7', '#EEEAFB'] },
+    { name: 'Canwasa', screen: 'Explore', colours: ['#EC4899', '#06B6D4', '#0B0B1A', '#8B5CF6'] },
+    { name: 'Time Zone Connect', screen: 'World Clock', colours: ['#2563EB', '#6366F1', '#0F172A', '#F1F5F9'] }
+  ];
+  var chips = document.querySelectorAll('.swatches .chip'), hexes = document.querySelectorAll('.swatches .hex');
+  var swName = document.getElementById('swName');
+  function paint(a) {
+    a.colours.forEach(function (c, k) { chips[k].style.backgroundColor = c; hexes[k].textContent = c; });
+    swName.textContent = a.name;
+  }
+  paint(apps[0]);
+  var i = 0;
+  function next() {
+    var cur = imgs[i]; i = (i + 1) % imgs.length; var nxt = imgs[i];
+    wire.classList.remove('draw', 'fade'); void wire.offsetWidth; wire.classList.add('draw');
+    cur.classList.remove('on'); cur.classList.add('off');
+    setTimeout(function () { nxt.classList.remove('off'); nxt.classList.add('on'); paint(apps[i]); }, 900);
+    setTimeout(function () { wire.classList.add('fade'); }, 1900);
+    setTimeout(function () { cur.classList.remove('off'); }, 1300);
+  }
+  if (!still) setInterval(next, 4200);
+
+  // camera timecode from the footage itself
+  var reel = document.getElementById('reel'), tc = document.getElementById('tc'), start = Date.now();
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  (function run() {
+    var s = (Date.now() - start) / 1000, f = Math.floor((s % 1) * 24);
+    tc.textContent = pad(Math.floor(s / 3600)) + ':' + pad(Math.floor(s / 60) % 60) + ':' + pad(Math.floor(s) % 60) + ':' + pad(f);
+    if (!still) requestAnimationFrame(run);
+  })();
+  if (still) { [].forEach.call(document.querySelectorAll('video'), function (v) { v.removeAttribute('autoplay'); v.pause(); }); }
+
+  // two tools under the pointer: guides on the canvas, a focus square in the viewfinder
+  if (!touch) {
+    var design = split.querySelector('.design'), content = split.querySelector('.content');
+    var gx = design.querySelector('.guide.x'), gy = design.querySelector('.guide.y'), coords = design.querySelector('.coords');
+    design.addEventListener('pointermove', function (e) {
+      var r = design.getBoundingClientRect(), x = Math.round(e.clientX - r.left), y = Math.round(e.clientY - r.top);
+      design.classList.add('tracking');
+      gx.style.top = y + 'px'; gy.style.left = x + 'px';
+      coords.style.left = (x + 14) + 'px'; coords.style.top = (y + 14) + 'px';
+      coords.textContent = 'X ' + x + '  Y ' + y;
+    });
+    design.addEventListener('pointerleave', function () { design.classList.remove('tracking'); });
+    var focus = content.querySelector('.focus');
+    content.addEventListener('pointermove', function (e) {
+      var r = content.getBoundingClientRect();
+      content.classList.add('tracking');
+      focus.style.left = (e.clientX - r.left) + 'px'; focus.style.top = (e.clientY - r.top) + 'px';
+    });
+    content.addEventListener('pointerleave', function () { content.classList.remove('tracking'); });
+  }
+
+  // choosing a path: that side sweeps across, then the site opens
+  [].forEach.call(document.querySelectorAll('.half'), function (a) {
+    a.addEventListener('click', function (e) {
+      if (still || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+      e.preventDefault();
+      split.classList.add('leaving', 'to-' + a.dataset.path);
+      setTimeout(function () { location.href = a.href; }, 720);
+    });
+  });
+  window.addEventListener('pageshow', function () { split.classList.remove('leaving', 'to-design', 'to-content'); });
+})();
+</script>
+</body>
+</html>
